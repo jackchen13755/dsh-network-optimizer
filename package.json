@@ -1,0 +1,72 @@
+{
+  "name": "dsh-web-network-optimizer",
+  "version": "0.4.0",
+  "description": "dsh网页端网络优化（社区兼容重构版）：brotli/gzip 响应压缩 + 内容寻址缓存与 ETag 条件再验证 + 分插件流量账本 + 连接守护（断连指示与自动断网重连）。适配 dsh 0.1.5-rc.1 / 0.1.6。",
+  "type": "module",
+  "main": "./lib/index.js",
+  "files": [
+    "lib",
+    "cordis.patch.yml"
+  ],
+  "license": "MIT",
+  "author": "enterhalf (original) · jackchen13755 (compatibility refactor)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jackchen13755/dsh-network-optimizer.git"
+  },
+  "homepage": "https://github.com/jackchen13755/dsh-network-optimizer#readme",
+  "bugs": {
+    "url": "https://github.com/jackchen13755/dsh-network-optimizer/issues"
+  },
+  "keywords": [
+    "deepseek",
+    "harness",
+    "dsh",
+    "dsh-plugin",
+    "compression",
+    "brotli",
+    "cache",
+    "http-cache",
+    "etag",
+    "websocket",
+    "reconnect",
+    "network"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "peerDependencies": {
+    "cordis": ">=4.0.0-rc <5",
+    "@deepseek-ai/dsh": ">=0.1.5-rc.1 <0.2"
+  },
+  "scripts": {
+    "build": "bash scripts/build.sh",
+    "build:client": "node scripts/build-client.mjs",
+    "build:all": "bash scripts/build.sh && node scripts/build-client.mjs",
+    "test": "node scripts/test/run.mjs",
+    "test:host": "node scripts/test/host.test.mjs",
+    "test:client": "node scripts/test/browser-run.mjs"
+  },
+  "exports": {
+    ".": {
+      "default": "./lib/index.js"
+    },
+    "./client": {
+      "default": "./lib/client.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-connection",
+        "@deepseek-ai/dsh-client-runtime",
+        "@deepseek-ai/dsh-client-ui-slots"
+      ]
+    }
+  }
+}

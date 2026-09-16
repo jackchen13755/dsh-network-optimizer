@@ -1,0 +1,6 @@
+node_modules/
+*.tgz
+*.tsbuildinfo
+
+# lib/ 刻意入库:用户 clone 后可直接 `dsh plugin add .`,不必先跑构建。
+# src 与 lib 的一致性由 scripts/test/lib-sync.test.mjs 保证(跑 npm test 即校验)。
