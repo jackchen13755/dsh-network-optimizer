@@ -37,7 +37,7 @@
   },
   "peerDependencies": {
     "cordis": ">=4.0.0-rc <5",
-    "@deepseek-ai/dsh": ">=0.1.5-rc.1 <0.2"
+    "@deepseek-ai/dsh": "^0.1.5-rc.1 || >=0.1.6-alpha.1 <0.2"
   },
   "scripts": {
     "build": "bash scripts/build.sh",
