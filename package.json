@@ -1,7 +1,7 @@
 {
   "name": "dsh-web-network-optimizer",
-  "version": "0.4.0",
-  "description": "dsh网页端网络优化（社区兼容重构版）：brotli/gzip 响应压缩 + 内容寻址缓存与 ETag 条件再验证 + 分插件流量账本 + 连接守护（断连指示与自动断网重连）。适配 dsh 0.1.5-rc.1 / 0.1.6。",
+  "version": "0.4.1",
+  "description": "dsh网页端网络优化（社区兼容重构版）：brotli/gzip 响应压缩 + 内容寻址缓存与 ETag 条件再验证 + 分插件流量账本 + 连接守护（断连指示与自动断网重连）。适配 dsh 0.1.5-rc.1 起（含 0.2.0-rc.1；不声明 dsh peer 约束，跨代由宿主兼容门禁把关）。",
   "type": "module",
   "main": "./lib/index.js",
   "files": [
@@ -36,8 +36,7 @@
     "registry": "https://registry.npmjs.org/"
   },
   "peerDependencies": {
-    "cordis": ">=4.0.0-rc <5",
-    "@deepseek-ai/dsh": "^0.1.5-rc.1 || >=0.1.6-alpha.1 <0.2"
+    "cordis": ">=4.0.0-rc <5"
   },
   "scripts": {
     "build": "bash scripts/build.sh",
